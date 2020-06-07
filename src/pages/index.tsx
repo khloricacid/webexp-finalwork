@@ -2,19 +2,39 @@ import * as React from 'react';
 import 'ress';
 /** @jsx jsx */
 import { Global, jsx, css } from '@emotion/core';
-import Halo from '../components/halo';
-import Reason from '../components/reason';
+import { Loader } from '../components/load';
+import { Features } from '../components/features';
+import { Hero } from '../components/hero';
+import { Reason } from '../components/reason';
 
-export default function Home() {
+const App = (): React.ReactElement => {
   return (
     <React.Fragment>
-      <Global styles={css`
-        p, a {
-          font-size: 14px;
-        }
-      `}/>
-      <Halo />
-      <Reason />
+      <Global
+        styles={css`
+          @import url('https://rsms.me/inter/inter.css');
+          html {
+            font-family: 'Inter', sans-serif;
+          }
+          @supports (font-variation-settings: normal) {
+            html {
+              font-family: 'Inter var', sans-serif;
+            }
+          }
+          body {
+            font-size: 14px;
+            min-width: 1200px;
+          }
+        `}
+      />
+      {/* <Loader /> */}
+      <Hero />
+      <main>
+        <Reason />
+        <Features />
+      </main>
     </React.Fragment>
-  )
-}
+  );
+};
+
+export default App;

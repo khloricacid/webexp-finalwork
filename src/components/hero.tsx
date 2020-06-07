@@ -6,7 +6,7 @@ import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
 import DhuLogo from './logo_static';
 
-const Container = styled.div`
+const Container = styled.header`
   height: 720px;
   display: grid;
   grid-template-columns: 1fr 500px;
@@ -18,7 +18,8 @@ const Keyvisual = styled(motion.div)`
   width: 100%;
   height: 100%;
   border-bottom-right-radius: 100px;
-  background: linear-gradient(30deg, #ff660040, #f5be5340), center/cover url(${withPrefix('/images/carriculam_web_large.jpg')});
+  background: linear-gradient(30deg, #ff660040, #f5be5340),
+    center/cover url(${withPrefix('/images/carriculam_web_large.jpg')});
   z-index: 0;
 `;
 
@@ -69,9 +70,8 @@ const haloVariant = {
     transition: {
       duration: 0.6
     }
-  },
-  
-}
+  }
+};
 const headingVariant = {
   hidden: {
     y: '-100%',
@@ -88,47 +88,39 @@ const headingVariant = {
       staggerChildren: 0.1
     }
   }
-}
+};
 
-export default () => {
+export const Hero = (): React.ReactElement => {
   return (
     <Container>
-      <Keyvisual
-        initial="hidden"
-        animate="visible"
-        variants={haloVariant}
-      />
-      <Heading
-        initial="hidden"
-        animate="visible"
-        variants={headingVariant}
-      >
-        <Department
-          initial={{y: -100, opacity: 0}}
-          variants={headingVariant}
-        >
+      <Keyvisual initial="hidden" animate="visible" variants={haloVariant} />
+      <Heading initial="hidden" animate="visible" variants={headingVariant}>
+        <Department initial={{ y: -100, opacity: 0 }} variants={headingVariant}>
           <DhuLogo />
           <span>Webデザイン･Web開発</span>
         </Department>
         <LeadText
-          initial={{y: -100, opacity: 0}}
+          initial={{ y: -100, opacity: 0 }}
           variants={headingVariant}
-          css={{marginTop: 16}}
+          css={{ marginTop: 16 }}
         >
-          Web業界を<br/>
-          リードする<br/>
-          知識と技術を<br/>
+          Web業界を
+          <br />
+          リードする
+          <br />
+          知識と技術を
+          <br />
           手に入れよう
         </LeadText>
         <GetBrochure
-          initial={{y: -100, opacity: 0}}
+          initial={{ y: -100, opacity: 0 }}
           variants={headingVariant}
-          css={{marginTop: 16}}
+          css={{ marginTop: 16 }}
           href="#"
         >
-          資料請求はこちら
+          資料請求はこちら ↓
         </GetBrochure>
       </Heading>
     </Container>
-  )
-}
+  );
+};
