@@ -33,11 +33,11 @@ export const Features = (): React.ReactElement => {
             <li>Webデザイン演習</li>
           </CurriculumList>
         </FeatureDescription>
-        <FeatureImage url={withPrefix('/images/feature_learning_large.jpg')} />
+        <FeatureImage url={withPrefix('/images/feature/feature-1.jpg')} />
       </FeatureArticle>
       <FeatureArticle>
         {/* eslint-disable-next-line prettier/prettier */}
-        <FeatureImage url={withPrefix('/images/feature_carriculam_large.jpg')} />
+        <FeatureImage url={withPrefix('/images/feature/feature-2.jpg')} />
         <FeatureDescription>
           <h3>
             新しいWeb表現を探る
@@ -92,7 +92,7 @@ const BusinessArticle = styled.article`
   justify-content: center;
   width: 100vw;
   height: 500px;
-  background: center/cover url(${withPrefix('/images/feature_web_large.jpg')});
+  background: center/cover url(${withPrefix('./images/feature/feature-3.jpg')});
   color: white;
 `;
 

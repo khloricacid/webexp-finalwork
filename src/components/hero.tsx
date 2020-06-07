@@ -19,7 +19,7 @@ const Keyvisual = styled(motion.div)`
   height: 100%;
   border-bottom-right-radius: 100px;
   background: linear-gradient(30deg, #ff660040, #f5be5340),
-    center/cover url(${withPrefix('/images/carriculam_web_large.jpg')});
+    center/cover url(${withPrefix('/images/hero.jpg')});
   z-index: 0;
 `;
 

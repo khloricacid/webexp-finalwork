@@ -16,7 +16,7 @@ const Container = styled.section`
   min-height: 800px;
   background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 85.45%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.57), rgba(0, 0, 0, 0.57)),
-    center/cover url(${withPrefix('/images/web_overview_poster_large.jpg')});
+    center/cover url(${withPrefix('/images/reason.jpg')});
   color: white;
 `;
 
@@ -44,7 +44,7 @@ const Paragraph = styled.p`
   width: 500px;
 `;
 
-export const Reason = (): React.ReactElement => {
+export const Reason: React.FC = (): React.ReactElement => {
   return (
     <Container>
       <Text>
