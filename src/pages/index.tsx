@@ -8,9 +8,8 @@ import { Features } from '../components/features';
 import { Hero } from '../components/hero';
 import { Reason } from '../components/reason';
 
-export const intersectionRef = React.useRef(null);
-
 const App = (): React.ReactElement => {
+  const intersectionRef = React.useRef(null);
   const intersection = useIntersection(intersectionRef, {
     root: null,
     rootMargin: '0px',
