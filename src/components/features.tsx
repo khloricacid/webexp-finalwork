@@ -19,7 +19,7 @@ export const Features = (): React.ReactElement => {
       </ArticleHeading>
       <FeatureArticle>
         <FeatureDescription>
-          <h3>
+          <h3 className="gradient-text_orange">
             基礎から先端技術まで
             <span className="features-description_small">
               Webサイト制作に関わるすべてを学ぶ
@@ -39,7 +39,7 @@ export const Features = (): React.ReactElement => {
         {/* eslint-disable-next-line prettier/prettier */}
         <FeatureImage url={withPrefix('/images/feature/feature-2.jpg')} />
         <FeatureDescription>
-          <h3>
+          <h3 className="gradient-text_orange">
             新しいWeb表現を探る
             <span className="features-description_small">
               複合的な学びが得られるカリキュラム
@@ -49,8 +49,11 @@ export const Features = (): React.ReactElement => {
             サイト構築だけでなく、デザインの基礎から動画撮影やゲーム開発に必要なプログラミングまで横断的に学ぶことができます。動画や音楽、ゲームなどを盛り込んだ、バリエーション豊かなサイトの構築手法が身につきます。
           </Paragraph>
           <CurriculumList>
-            <li>映像制作演習</li>
-            <li>デザインベーシック</li>
+            <span>授業</span>
+            <ul>
+              <li>映像制作演習</li>
+              <li>デザインベーシック</li>
+            </ul>
           </CurriculumList>
         </FeatureDescription>
       </FeatureArticle>
@@ -90,7 +93,7 @@ const BusinessArticle = styled.article`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   height: 500px;
   background: center/cover url(${withPrefix('./images/feature/feature-3.jpg')});
   color: white;
@@ -117,16 +120,17 @@ const FeatureImage = styled.div`
   background: center/cover url(${(props: FeatureProps) => props.url});
 `;
 
-const CurriculumList = styled.ul`
+const CurriculumList = styled.aside`
+  display: inline-flex;
   margin-top: 16px;
-  list-style: none;
-  display: flex;
-  li + li {
-    margin-left: 1em;
+  ul {
+    list-style: none;
+    display: flex;
+    li + li {
+      margin-left: 1em;
+    }
   }
-  &:before {
-    content: '授業';
-    font-size: 14px;
+  span {
     font-weight: bold;
     margin-right: 1em;
   }

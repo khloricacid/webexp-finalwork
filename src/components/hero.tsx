@@ -41,12 +41,6 @@ const Department = styled(motion.p)`
 const LeadText = styled(motion.h1)`
   font-size: 48px;
   line-height: 1.2;
-  color: #f60;
-  background: linear-gradient(30deg, #ff6600, #f5be53);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
 `;
 
 const GetBrochure = styled(motion.a)`
@@ -100,6 +94,7 @@ export const Hero = (): React.ReactElement => {
           <span>Webデザイン･Web開発</span>
         </Department>
         <LeadText
+          className="gradient-text_orange"
           initial={{ y: -100, opacity: 0 }}
           variants={headingVariant}
           css={{ marginTop: 16 }}
@@ -118,7 +113,8 @@ export const Hero = (): React.ReactElement => {
           css={{ marginTop: 16 }}
           href="#"
         >
-          資料請求はこちら ↓
+          資料請求はこちら
+          <motion.span>↓</motion.span>
         </GetBrochure>
       </Heading>
     </Container>
