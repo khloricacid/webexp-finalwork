@@ -8,6 +8,7 @@ import { Hero } from '../components/hero';
 import { Reason } from '../components/reason';
 import { Courses } from '../components/courses';
 import { Faculty } from '../components/faculty';
+import { Employment } from '../components/employment';
 import { Wrapper960 } from '../components/shared';
 
 const App = (): React.ReactElement => {
@@ -49,6 +50,7 @@ const App = (): React.ReactElement => {
         <Wrapper960>
           <Courses />
           <Faculty />
+          <Employment />
         </Wrapper960>
       </main>
     </React.Fragment>
