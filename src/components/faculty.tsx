@@ -36,6 +36,7 @@ export const Faculty = (): React.ReactElement => {
         css={css`
           display: flex;
           justify-content: space-between;
+          margin-bottom: 32px;
         `}
       >
         <CommonHeading en="THE FACULTY" ja="教員紹介" />
@@ -58,7 +59,9 @@ export const Faculty = (): React.ReactElement => {
   );
 };
 
-const Wrapper = styled.article``;
+const Wrapper = styled.article`
+  margin-top: 100px;
+`;
 
 const TeacherList = styled.ul`
   list-style: none;
@@ -70,15 +73,28 @@ type TeacherCardProps = {
   image: string;
 };
 const TeacherCard = styled.a`
+  position: relative;
   display: inline-block;
   width: 300px;
   height: 400px;
   border-radius: 5px;
-  background: center/cover url(${(props: TeacherCardProps) => withPrefix(`images/teacher/${props.image}`)});
+  background: linear-gradient(to top, #000000ff, #00000080 30%, #00000000),
+    center/cover url(${(props: TeacherCardProps) => withPrefix(`images/teacher/${props.image}`)});
   text-decoration: none;
   color: white;
+  &:hover {
+    .teacher {
+      &-desc {
+        display: block;
+      }
+    }
+  }
 `;
 const TeacherContent = styled.div`
+  position: absolute;
+  width: 90%;
+  bottom: 16px;
+  left: 16px;
   .teacher {
     &-occupation {
       font-size: 16px;
@@ -88,6 +104,8 @@ const TeacherContent = styled.div`
       font-size: 26px;
       font-weight: bold;
     };
-    &-desc {};
+    &-desc {
+      display: none;
+    };
   }
 `;

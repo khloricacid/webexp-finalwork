@@ -8,7 +8,13 @@ import { CommonHeading, Paragraph } from './shared';
 export const Employment = (): React.ReactElement => {
   return (
     <Wrapper>
-      <CommonHeading en="EMPLOYMENT" ja="就職実績" />
+      <CommonHeading
+        en="EMPLOYMENT"
+        ja="就職実績"
+        css={css`
+          margin-bottom: 32px;
+        `}
+      />
       <EmployContent>
         <div
           css={css`
@@ -26,6 +32,7 @@ export const Employment = (): React.ReactElement => {
           >
             DHUはIT・コンテンツ業界に独自の企業ネットワークと9万人を超えるデジタルハリウッド全体の卒業生ネットワークを保有しています。本学の就職率が高いのは、業界とのネットワークの強さと、1年次からのきめ細かい就職サポートで、学生の夢実現を応援しています。
           </Paragraph>
+          <a href="#">就職情報</a>
         </div>
         <div
           css={css`
@@ -50,7 +57,9 @@ export const Employment = (): React.ReactElement => {
   );
 };
 
-const Wrapper = styled.article``;
+const Wrapper = styled.article`
+  margin-top: 100px;
+`;
 const Heading = styled.h3`
   font-weight: bold;
   font-size: 14px;

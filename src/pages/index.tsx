@@ -9,6 +9,8 @@ import { Reason } from '../components/reason';
 import { Courses } from '../components/courses';
 import { Faculty } from '../components/faculty';
 import { Employment } from '../components/employment';
+import { Almunis } from '../components/almuni';
+import { Contact } from '../components/learnmore';
 import { Wrapper960 } from '../components/shared';
 
 const App = (): React.ReactElement => {
@@ -51,6 +53,8 @@ const App = (): React.ReactElement => {
           <Courses />
           <Faculty />
           <Employment />
+          <Almunis />
+          <Contact />
         </Wrapper960>
       </main>
     </React.Fragment>

@@ -9,7 +9,7 @@ export const Courses = (): React.ReactElement => {
   return (
     <Wrapper
       css={css`
-        margin-top: 90px;
+        margin-top: 100px;
       `}
     >
       <CommonHeading en="COURSES" ja="授業紹介" />
