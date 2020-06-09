@@ -2,23 +2,15 @@ import * as React from 'react';
 import 'ress';
 /** @jsx jsx */
 import { Global, jsx, css } from '@emotion/core';
-import { useIntersection } from 'react-use';
 import { Loader } from '../components/load';
 import { Features } from '../components/features';
 import { Hero } from '../components/hero';
 import { Reason } from '../components/reason';
+import { Courses } from '../components/courses';
+import { Faculty } from '../components/faculty';
+import { Wrapper960 } from '../components/shared';
 
 const App = (): React.ReactElement => {
-  const intersectionRef = React.useRef(null);
-  const intersection = useIntersection(intersectionRef, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 1
-  });
-  React.useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log(intersection);
-  }, []);
   return (
     <React.Fragment>
       <Global
@@ -54,6 +46,10 @@ const App = (): React.ReactElement => {
       <main>
         <Reason />
         <Features />
+        <Wrapper960>
+          <Courses />
+          <Faculty />
+        </Wrapper960>
       </main>
     </React.Fragment>
   );

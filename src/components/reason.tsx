@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { intersectionRef } from '../pages/index';
 
 const Container = styled.section`
   display: flex;
@@ -45,9 +44,8 @@ const Paragraph = styled.p`
 `;
 
 export const Reason: React.FC = (): React.ReactElement => {
-  const isRef = intersectionRef;
   return (
-    <Container ref={isRef}>
+    <Container>
       <Text>
         <Heading>
           <EnHeading>WHY DHU</EnHeading>

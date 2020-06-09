@@ -1,11 +1,7 @@
 import * as React from 'react';
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
 
 export const ArticleHeading = styled.div`
-  margin-left: 64px;
-  margin-top: 128px;
   text-align: left;
 `;
 export const EnHeading = styled.span`
@@ -16,6 +12,25 @@ export const JpHeading = styled.h2`
   font-weight: bold;
   font-size: 26px;
 `;
+
+type HeadingProps = {
+  en: string;
+  ja: string;
+};
+export const CommonHeading = ({ en, ja }: HeadingProps) => {
+  return (
+    <ArticleHeading>
+      <EnHeading>{en}</EnHeading>
+      <JpHeading>{ja}</JpHeading>
+    </ArticleHeading>
+  );
+};
+
 export const Paragraph = styled.p`
   line-height: 26px;
+`;
+
+export const Wrapper960 = styled.div`
+  width: 960px;
+  margin: 0 auto;
 `;
