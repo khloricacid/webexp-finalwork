@@ -5,5 +5,5 @@ module.exports = {
     description: `WIPWIPWIPWIPWIPWIP`
   },
   pathPrefix: `/images`,
-  plugins: [`gatsby-plugin-typescript`, `gatsby-plugin-emotion`]
+  plugins: [`gatsby-plugin-typescript`, `gatsby-plugin-emotion`, `gatsby-plugin-react-helmet`]
 };

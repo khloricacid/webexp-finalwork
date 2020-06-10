@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Helmet from 'react-helmet';
 import { useInView } from 'react-intersection-observer';
 import 'ress';
 /** @jsx jsx */
@@ -17,9 +18,15 @@ import { StickLink } from '../components/stick';
 import { Wrapper960 } from '../components/shared';
 
 const App = (): React.ReactElement => {
-
   return (
     <React.Fragment>
+      <Helmet
+        htmlAttributes={{
+          lang: 'ja'
+        }}
+        title="---WIP--- finalwork : web-adv ---WIP---"
+        meta={[{ name: 'description', content: `WIPWIPWIPWIPWIPWIP` }]}
+      />
       <Global
         styles={css`
           @import url('https://rsms.me/inter/inter.css');
