@@ -4,6 +4,8 @@ import { useInView } from 'react-intersection-observer';
 import 'ress';
 /** @jsx jsx */
 import { Global, jsx, css } from '@emotion/core';
+import styled from '@emotion/styled';
+
 import { Loader } from '../components/load';
 import { Features } from '../components/features';
 import { Hero } from '../components/hero';
@@ -17,9 +19,33 @@ import { Footer } from '../components/footer';
 import { StickLink } from '../components/stick';
 import { Wrapper960 } from '../components/shared';
 
+const Disclaimer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30vw;
+  height: 200px;
+  color: white;
+  background: black;
+  z-index: 9999;
+  padding: 20px;
+`;
+
 const App = (): React.ReactElement => {
   return (
     <React.Fragment>
+      <Disclaimer>
+        <p
+          css={css`
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 8px;
+          `}
+        >
+          このページは現在進行形で開発がされています
+        </p>
+        <p>多少の粗々はご容赦ください</p>
+      </Disclaimer>
       <Helmet
         htmlAttributes={{
           lang: 'ja'
