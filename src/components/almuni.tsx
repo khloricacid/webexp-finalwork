@@ -39,7 +39,7 @@ export const Almunis = (): React.ReactElement => {
                   <span>{person.company}</span>
                 </AlmuniInfoText>
               </AlmuniInfo>
-              <a href={person.link}>もっと見る</a>
+              <a href={person.link} target="_blank" rel="norefferer">もっと見る</a>
             </Heading>
             <Paragraph>{person.body}</Paragraph>
           </AlmuniCard>

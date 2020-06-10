@@ -41,12 +41,12 @@ export const Faculty = (): React.ReactElement => {
         `}
       >
         <CommonHeading en="THE FACULTY" ja="教員紹介" />
-        <a href="https://yoshikawaweb.com/element/">担当教員</a>
+        <a href="https://yoshikawaweb.com/element/" target="_blank" rel="norefferer">担当教員</a>
       </div>
       <TeacherList>
         {faculties.map(teacher => (
           <li key={teacher.name}>
-            <TeacherCard href={teacher.href} image={teacher.image}>
+            <TeacherCard href={teacher.href} image={teacher.image} target="_blank" rel="norefferer">
               <TeacherContent>
                 <span className="teacher-occupation">{teacher.occupation}</span>
                 <p className="teacher-name">{teacher.name}</p>

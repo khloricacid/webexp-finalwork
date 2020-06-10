@@ -12,7 +12,7 @@ export const Contact = (): React.ReactElement => {
       </ArticleHeading>
       <ContactCards>
         <li>
-          <ContactCard color="#64A3ED">
+          <ContactCard href="https://www.dhw.ac.jp/entrance/" target="_blank" rel="norefferer" color="#64A3ED">
             <CardContent>
               <EnHeading>ADMISSON INFORMATION</EnHeading>
               <JpHeading>入試情報</JpHeading>
@@ -25,7 +25,7 @@ export const Contact = (): React.ReactElement => {
           </ContactCard>
         </li>
         <li>
-          <ContactCard color="#706EE8">
+          <ContactCard href="https://www.dhw.ac.jp/form/shiryo/" target="_blank" rel="norefferer" color="#706EE8">
             <CardContent>
               <EnHeading>REQUEST BROCHURE</EnHeading>
               <JpHeading>資料請求する</JpHeading>
@@ -38,7 +38,7 @@ export const Contact = (): React.ReactElement => {
           </ContactCard>
         </li>
         <li>
-          <ContactCard color="#FF6600">
+          <ContactCard href="https://www.dhw.ac.jp/oc/" target="_blank" rel="norefferer" color="#FF6600">
             <CardContent>
               <EnHeading>OPEN CAMPUS</EnHeading>
               <JpHeading>オープンキャンパス</JpHeading>

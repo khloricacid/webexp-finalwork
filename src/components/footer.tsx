@@ -14,32 +14,32 @@ export const Footer = (): React.ReactElement => {
         <nav>
           <FacultyList>
             <FacultyItem>
-              <a href="https://www.dhw.ac.jp/faculty/3dcg/">3DCG･VFX</a>
+              <a href="https://www.dhw.ac.jp/faculty/3dcg/" target="_blank" rel="norefferer">3DCG･VFX</a>
             </FacultyItem>
             <FacultyItem>
-              <a href="https://www.dhw.ac.jp/faculty/game/">ゲーム･プログラミング</a>
+              <a href="https://www.dhw.ac.jp/faculty/game/" target="_blank" rel="norefferer">ゲーム･プログラミング</a>
             </FacultyItem>
             <FacultyItem>
-              <a href="https://www.dhw.ac.jp/faculty/movie/">映像</a>
+              <a href="https://www.dhw.ac.jp/faculty/movie/" target="_blank" rel="norefferer">映像</a>
             </FacultyItem>
             <FacultyItem>
-              <a href="https://www.dhw.ac.jp/faculty/graphic/">グラフィック</a>
+              <a href="https://www.dhw.ac.jp/faculty/graphic/" target="_blank" rel="norefferer">グラフィック</a>
             </FacultyItem>
             <FacultyItem>
-              <a href="https://www.dhw.ac.jp/faculty/anime/">アニメ</a>
+              <a href="https://www.dhw.ac.jp/faculty/anime/" target="_blank" rel="norefferer">アニメ</a>
             </FacultyItem>
             <FacultyItem
               css={css`
                 font-weight: bold;
               `}
             >
-              <a href="https://www.dhw.ac.jp/faculty/web/">Web</a>
+              <a href="https://www.dhw.ac.jp/faculty/web/" target="_blank" rel="norefferer">Web</a>
             </FacultyItem>
             <FacultyItem>
-              <a href="https://www.dhw.ac.jp/faculty/media/">VR･メディアアート</a>
+              <a href="https://www.dhw.ac.jp/faculty/media/" target="_blank" rel="norefferer">VR･メディアアート</a>
             </FacultyItem>
             <FacultyItem>
-              <a href="https://www.dhw.ac.jp/faculty/business/">広告･起業</a>
+              <a href="https://www.dhw.ac.jp/faculty/business/" target="_blank" rel="norefferer">広告･起業</a>
             </FacultyItem>
           </FacultyList>
         </nav>

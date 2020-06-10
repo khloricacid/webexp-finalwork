@@ -14,12 +14,20 @@ const Container = styled.header`
   align-items: flex-end;
 `;
 
+const TopLink = styled.a`
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  text-align: right;
+  text-decoration: none;
+  color: #353535;
+`;
+
 const Keyvisual = styled(motion.div)`
   width: 100%;
   height: 100%;
   border-bottom-right-radius: 100px;
-  background: linear-gradient(30deg, #ff660040, #f5be5340),
-    center/cover url(${withPrefix('/images/hero.jpg')});
+  background: linear-gradient(30deg, #ff660040, #f5be5340), center/cover url(${withPrefix('/images/hero.jpg')});
   z-index: 0;
 `;
 
@@ -43,13 +51,46 @@ const LeadText = styled(motion.h1)`
   line-height: 1.2;
 `;
 
+const ArrowContainer = styled.div`
+  position: relative;
+  width: 14px;
+  height: 17px;
+  overflow: hidden;
+  margin-left: 0.5em;
+`;
+
 const GetBrochure = styled(motion.a)`
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
+  background: transparent;
   color: #f60;
   padding: 5px 16px;
   border: 1px solid #f60;
   border-radius: 100px;
+  span {
+    position: absolute;
+  }
+  &:hover {
+    @keyframes arrowAnimation {
+      0% {
+        bottom: 0;
+      }
+      60% {
+        bottom: -17px;
+      }
+      61% {
+        bottom: 0;
+        top: -17px;
+      }
+      100% {
+        top: 0;
+      }
+    }
+    span {
+      animation: arrowAnimation 0.8s ease-in-out;
+    }
+  }
 `;
 
 const haloVariant = {
@@ -85,8 +126,12 @@ const headingVariant = {
 };
 
 export const Hero = (): React.ReactElement => {
+  const [isHover, toggleHover] = React.useState(false);
   return (
     <Container>
+      <TopLink href="https://www.dhw.ac.jp/" target="_blank" rel="norefferer">
+        大学HP
+      </TopLink>
       <Keyvisual initial="hidden" animate="visible" variants={haloVariant} />
       <Heading initial="hidden" animate="visible" variants={headingVariant}>
         <Department initial={{ y: -100, opacity: 0 }} variants={headingVariant}>
@@ -109,12 +154,15 @@ export const Hero = (): React.ReactElement => {
         </LeadText>
         <GetBrochure
           initial={{ y: -100, opacity: 0 }}
+          whileHover={{ backgroundColor: '#f60', color: '#fff', transition: { duration: 0.2 } }}
           variants={headingVariant}
           css={{ marginTop: 16 }}
           href="#"
         >
           資料請求はこちら
-          <motion.span>↓</motion.span>
+          <ArrowContainer>
+            <span>↓</span>
+          </ArrowContainer>
         </GetBrochure>
       </Heading>
     </Container>
