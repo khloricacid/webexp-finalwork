@@ -3,7 +3,7 @@ import { withPrefix } from 'gatsby';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { CommonHeading, Paragraph } from './shared';
+import { CommonHeading, Paragraph, CommonButton } from './shared';
 
 export const Employment = (): React.ReactElement => {
   return (
@@ -11,9 +11,6 @@ export const Employment = (): React.ReactElement => {
       <CommonHeading
         en="EMPLOYMENT"
         ja="就職実績"
-        css={css`
-          margin-bottom: 32px;
-        `}
       />
       <EmployContent>
         <div
@@ -28,11 +25,17 @@ export const Employment = (): React.ReactElement => {
           <Paragraph
             css={css`
               width: 300px;
+              margin-top: 16px;
             `}
           >
             DHUはIT・コンテンツ業界に独自の企業ネットワークと9万人を超えるデジタルハリウッド全体の卒業生ネットワークを保有しています。本学の就職率が高いのは、業界とのネットワークの強さと、1年次からのきめ細かい就職サポートで、学生の夢実現を応援しています。
           </Paragraph>
-          <a href="#">就職情報</a>
+          <CommonButton
+            name="進路・就職情報"
+            primaryColor="#353535"
+            hoverColor="#f60"
+            href="https://www.dhw.ac.jp/employment/"
+          />
         </div>
         <div
           css={css`
@@ -72,4 +75,5 @@ const EmployContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 32px;
 `;

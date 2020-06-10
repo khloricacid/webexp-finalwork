@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
+import { CommonButton } from './shared';
 
 const Container = styled.section`
   display: flex;
@@ -72,12 +73,12 @@ export const Reason: React.FC = (): React.ReactElement => {
     <Container>
       <Text animate={inView ? 'visible' : 'hidden'} variants={variants} ref={ref}>
         <Heading variants={variants}>
-          <EnHeading variants={variants}>WHY DHU</EnHeading>
-          <JpHeading variants={variants}>大学でWeb制作を学ぶ理由</JpHeading>
+          <EnHeading>WHY DHU</EnHeading>
+          <JpHeading>大学でWeb制作を学ぶ理由</JpHeading>
         </Heading>
         <Paragraph
           css={css`
-            margin-top: 16px;
+            margin: 16px 0;
           `}
           variants={variants}
         >
@@ -86,7 +87,8 @@ export const Reason: React.FC = (): React.ReactElement => {
           デジタルハリウッド大学では技術的な学習と合わせて、語学、マーケティング、リベラルアーツなどこれからの未来を支える人たちに総合的なカリキュラムを設定しています。
           スキルのみではない学びができるのが最大の特徴です。
         </Paragraph>
+        <CommonButton name="学部紹介" primaryColor="#fff" hoverColor="#000" href="https://www.dhw.ac.jp/faculty/" />
       </Text>
     </Container>
-  )
-}
+  );
+};

@@ -4,7 +4,7 @@ import { withPrefix } from 'gatsby';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { CommonHeading, Paragraph } from './shared';
+import { CommonButton, CommonHeading, Paragraph } from './shared';
 
 const faculties = [
   {
@@ -41,7 +41,12 @@ export const Faculty = (): React.ReactElement => {
         `}
       >
         <CommonHeading en="THE FACULTY" ja="教員紹介" />
-        <a href="https://yoshikawaweb.com/element/" target="_blank" rel="norefferer">担当教員</a>
+        <CommonButton
+          name="教員一覧"
+          primaryColor="#353535"
+          hoverColor="#f60"
+          href="https://www.dhw.ac.jp/feature/teacher/?categories=web"
+        />
       </div>
       <TeacherList>
         {faculties.map(teacher => (
@@ -101,10 +106,10 @@ const TeacherContent = styled.div`
     &-occupation {
       font-size: 16px;
       font-weight: bold;
-    };
+    }
     &-name {
       font-size: 26px;
       font-weight: bold;
-    };
+    }
   }
 `;

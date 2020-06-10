@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { CommonHeading, Paragraph } from './shared';
+import { ArticleHeading, EnHeading, JpHeading, Paragraph } from './shared';
 
 type FeatureProps = {
   url: string;
@@ -13,7 +13,15 @@ type FeatureProps = {
 export const Features = (): React.ReactElement => {
   return (
     <Container>
-      <CommonHeading en="CHARACTERISTICS OF LEARNING" ja="学びの特色" />
+      <ArticleHeading
+        css={css`
+          margin-left: 64px;
+          margin-top: 64px;
+        `}
+      >
+        <EnHeading>CHARACTERISTICS OF LEARNING</EnHeading>
+        <JpHeading>学びの特色</JpHeading>
+      </ArticleHeading>
       <FeatureArticle>
         <FeatureDescription>
           <h3 className="gradient-text_orange">

@@ -23,12 +23,11 @@ const Disclaimer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 30vw;
-  height: 200px;
   color: white;
   background: black;
   z-index: 9999;
   padding: 20px;
+  opacity: 0.6;
 `;
 
 const App = (): React.ReactElement => {
