@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { motion } from 'framer-motion';
 import { withPrefix } from 'gatsby';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
@@ -73,7 +74,7 @@ const TeacherList = styled.ul`
 type TeacherCardProps = {
   image: string;
 };
-const TeacherCard = styled.a`
+const TeacherCard = styled(motion.a)`
   position: relative;
   display: inline-block;
   width: 100%;
@@ -104,9 +105,6 @@ const TeacherContent = styled.div`
     &-name {
       font-size: 26px;
       font-weight: bold;
-    };
-    &-desc {
-      display: none;
     };
   }
 `;

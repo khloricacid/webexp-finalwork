@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { withPrefix } from 'gatsby';
+import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
@@ -44,11 +45,19 @@ const Paragraph = styled.p`
 `;
 
 export const Reason: React.FC = (): React.ReactElement => {
+  const [ref, inView, entry] = useInView({
+    threshold: 0
+  });
+
+  React.useEffect(() => {
+    console.log(entry);
+  }, [entry]);
+
   return (
     <Container>
-      <Text>
+      <Text ref={ref}>
         <Heading>
-          <EnHeading>WHY DHU</EnHeading>
+          <EnHeading>WHY DHU {`is ${inView}`}</EnHeading>
           <JpHeading>大学でWeb制作を学ぶ理由</JpHeading>
         </Heading>
         <Paragraph

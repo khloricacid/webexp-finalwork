@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useInView } from 'react-intersection-observer';
 import 'ress';
 /** @jsx jsx */
 import { Global, jsx, css } from '@emotion/core';
@@ -16,6 +17,7 @@ import { StickLink } from '../components/stick';
 import { Wrapper960 } from '../components/shared';
 
 const App = (): React.ReactElement => {
+
   return (
     <React.Fragment>
       <Global

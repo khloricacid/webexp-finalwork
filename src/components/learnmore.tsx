@@ -1,9 +1,7 @@
 import * as React from 'react';
-import { withPrefix } from 'gatsby';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { CommonHeading, Paragraph } from './shared';
 
 export const Contact = (): React.ReactElement => {
   return (
