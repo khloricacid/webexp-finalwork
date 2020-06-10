@@ -11,6 +11,8 @@ import { Faculty } from '../components/faculty';
 import { Employment } from '../components/employment';
 import { Almunis } from '../components/almuni';
 import { Contact } from '../components/learnmore';
+import { Footer } from '../components/footer';
+import { StickLink } from '../components/stick';
 import { Wrapper960 } from '../components/shared';
 
 const App = (): React.ReactElement => {
@@ -45,6 +47,7 @@ const App = (): React.ReactElement => {
         `}
       />
       {/* <Loader /> */}
+      <StickLink />
       <Hero />
       <main>
         <Reason />
@@ -55,6 +58,7 @@ const App = (): React.ReactElement => {
           <Employment />
           <Almunis />
           <Contact />
+          <Footer />
         </Wrapper960>
       </main>
     </React.Fragment>

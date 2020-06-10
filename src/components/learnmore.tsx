@@ -3,7 +3,7 @@ import { withPrefix } from 'gatsby';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { CommonHeading, Paragraph　} from './shared';
+import { CommonHeading, Paragraph } from './shared';
 
 export const Contact = (): React.ReactElement => {
   return (
@@ -15,17 +15,41 @@ export const Contact = (): React.ReactElement => {
       <ContactCards>
         <li>
           <ContactCard color="#64A3ED">
-            <p>aa</p>
+            <CardContent>
+              <EnHeading>ADMISSON INFORMATION</EnHeading>
+              <JpHeading>入試情報</JpHeading>
+              <CardBody>
+                入試方式や選考に関する
+                <br />
+                情報はこちら
+              </CardBody>
+            </CardContent>
           </ContactCard>
         </li>
         <li>
-          <ContactCard color="#64A3ED">
-            <p>aa</p>
+          <ContactCard color="#706EE8">
+            <CardContent>
+              <EnHeading>REQUEST BROCHURE</EnHeading>
+              <JpHeading>資料請求する</JpHeading>
+              <CardBody>
+                DHUのコンセプトブックや
+                <br />
+                入試資料を無料でお送りします
+              </CardBody>
+            </CardContent>
           </ContactCard>
         </li>
         <li>
-          <ContactCard color="#64A3ED">
-            <p>aa</p>
+          <ContactCard color="#FF6600">
+            <CardContent>
+              <EnHeading>OPEN CAMPUS</EnHeading>
+              <JpHeading>オープンキャンパス</JpHeading>
+              <CardBody>
+                DHUの魅力を余すところなく
+                <br />
+                体感しよう
+              </CardBody>
+            </CardContent>
           </ContactCard>
         </li>
       </ContactCards>
@@ -35,15 +59,27 @@ export const Contact = (): React.ReactElement => {
 
 const ContactCards = styled.ul`
   list-style: none;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 16px;
 `;
 const ContactCard = styled.a`
+  position: relative;
+  border-radius: 5px;
   background: ${props => props.color};
+  color: white;
   display: inline-block;
-  width: 300px;
+  width: 100%;
   height: 200px;
 `;
+
+const CardContent = styled.div`
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+`;
+
+const CardBody = styled.p``;
 
 const ArticleHeading = styled.div`
   text-align: center;

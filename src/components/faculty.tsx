@@ -65,8 +65,9 @@ const Wrapper = styled.article`
 
 const TeacherList = styled.ul`
   list-style: none;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 16px;
 `;
 
 type TeacherCardProps = {
@@ -75,7 +76,7 @@ type TeacherCardProps = {
 const TeacherCard = styled.a`
   position: relative;
   display: inline-block;
-  width: 300px;
+  width: 100%;
   height: 400px;
   border-radius: 5px;
   background: linear-gradient(to top, #000000ff, #00000080 30%, #00000000),
