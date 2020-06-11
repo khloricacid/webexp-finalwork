@@ -45,7 +45,7 @@ export const Employment = (): React.ReactElement => {
               就職率
               {InView ? (
                 <React.Fragment>
-                  <CountUp duration={3} end={91.7} decimals={1} />
+                  <CountUp duration={2} end={91.7} decimals={1} />
                   %。
                 </React.Fragment>
               ) : undefined}

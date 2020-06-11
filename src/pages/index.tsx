@@ -33,24 +33,11 @@ const Disclaimer = styled.div`
 const App = (): React.ReactElement => {
   return (
     <React.Fragment>
-      <Disclaimer>
-        <p
-          css={css`
-            font-weight: bold;
-            font-size: 18px;
-            margin-bottom: 8px;
-          `}
-        >
-          Development Build
-        </p>
-        <p>このページは現在開発中です</p>
-      </Disclaimer>
       <Helmet
         htmlAttributes={{
           lang: 'ja'
         }}
-        title="---WIP--- finalwork : web-adv ---WIP---"
-        meta={[{ name: 'description', content: `WIPWIPWIPWIPWIPWIP` }]}
+        title="[Web表現演習] 最終課題"
       />
       <Global
         styles={css`
