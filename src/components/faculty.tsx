@@ -110,10 +110,6 @@ const Wrapper = styled.article`
 `;
 
 const ListWrapper = styled.div`
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 16px;
   @media screen and (max-width: 960px) {
     padding-left: 32px;
     width: calc(100%);
@@ -123,12 +119,15 @@ const ListWrapper = styled.div`
 
 const TeacherList = styled(motion.ul)`
   list-style: none;
-  display: inline-flex;
-  li + li {
-    margin-left: 16px;
-  }
-  li:last-child {
-    padding-right: 32px;
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width: 960px) {
+    li + li {
+      margin-left: 16px;
+    }
+    li:last-child {
+      padding-right: 32px;
+    }
   }
 `;
 

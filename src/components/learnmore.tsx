@@ -83,6 +83,11 @@ const SvgWrap = styled.svg`
   path {
     fill: #000;
   }
+  @media screen and (max-width: 960px) {
+    opacity: 0.3;
+    left: unset;
+    right: 0px;
+  }
 `;
 
 const ContactCards = styled.ul`

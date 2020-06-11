@@ -1,25 +1,27 @@
 import * as React from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, useViewportScroll, AnimatePresence } from 'framer-motion';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { handleScroll } from './shared';
 
 export const StickLink = (): React.ReactElement => {
+  const [currentY, setCurrentY] = React.useState(0);
+  const { scrollY } = useViewportScroll();
   const anims = useAnimation();
   const textAnims = useAnimation();
+
   React.useEffect(() => {
-    const sequence = async () => {
-      await anims.start({ right: '-200px' });
-      await anims.start({ right: '-140px' });
-    };
-    sequence();
+    setInterval(() => {
+      setCurrentY(scrollY.get());
+      console.log(scrollY.get());
+    }, 1000);
   }, []);
   return (
     <Button
       role="button"
       onClick={() => handleScroll(document.querySelector('#contacts'))}
-      animate={anims}
+      animate={currentY > 900 && currentY < 5340 ? { right: -140 } : { right: -200 }}
       whileHover={{ right: 0 }}
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">

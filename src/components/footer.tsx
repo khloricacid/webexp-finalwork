@@ -98,6 +98,9 @@ const Wrapper = styled.article`
   p > small {
     text-transform: uppercase;
   }
+  @media screen and (max-width: 960px) {
+    padding: 0 32px;
+  }
 `;
 const Upper = styled.div`
   display: flex;

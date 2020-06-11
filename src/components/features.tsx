@@ -22,13 +22,27 @@ const hVars = {
     }
   },
   hidden: {
-    y: 0,
     opacity: 0
   }
 };
 
+const h2Vars = {
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      staggerChildren: 0.1
+    }
+  },
+  hidden: {
+    opacity: 0,
+    y: 30
+  }
+};
+
 const intersectionConfig = {
-  rootMargin: '0px 0px -30% 0px',
+  rootMargin: '0px 0px -40% 0px',
   threshold: 0,
   triggerOnce: true
 };
@@ -171,9 +185,9 @@ export const Features = (): React.ReactElement => {
           }
         `}
         ref={F3Ref}
-        initial={{ y: -100 }}
+        initial="hidden"
         animate={F3InView ? 'visible' : 'hidden'}
-        variants={hVars}
+        variants={h2Vars}
       >
         <FeatureDescription
           css={css`
@@ -192,9 +206,9 @@ export const Features = (): React.ReactElement => {
             <span className="features-description_small">つなげる知識も身につける</span>
           </h3>
           <Paragraph
-            initial={{ y: -100 }}
+            initial={{ y: 50 }}
             animate={F3InView ? 'visible' : 'hidden'}
-            variants={hVars}
+            variants={h2Vars}
             transition={{ delay: 0.2 }}
           >
             Webサイト制作技術と並行して、リサーチ基礎、プランニング基礎、インターネットマーケティングなど、ビジネス領域の科目を学ぶことでビジネスに活かせるWebの制作を学べます。また新たなWebサービスを生み出すために必要な知識やビジネス的な視点も養うことができます。
@@ -202,7 +216,7 @@ export const Features = (): React.ReactElement => {
           <CurriculumList
             initial={{ y: -150 }}
             animate={F3InView ? 'visible' : 'hidden'}
-            variants={hVars}
+            variants={h2Vars}
             transition={{ delay: 0.6 }}
           >
             <motion.span initial="hidden" variants={hVars}>
