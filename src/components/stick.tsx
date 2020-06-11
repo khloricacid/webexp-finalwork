@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { motion, useAnimation, useViewportScroll, AnimatePresence } from 'framer-motion';
+import { motion, useAnimation, useViewportScroll } from 'framer-motion';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -8,7 +8,6 @@ import { handleScroll } from './shared';
 export const StickLink = (): React.ReactElement => {
   const [currentY, setCurrentY] = React.useState(0);
   const { scrollY } = useViewportScroll();
-  const anims = useAnimation();
   const textAnims = useAnimation();
 
   React.useEffect(() => {
