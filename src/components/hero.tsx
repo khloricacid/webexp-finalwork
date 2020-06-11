@@ -27,7 +27,7 @@ const Keyvisual = styled(motion.div)`
   width: 100%;
   height: 100%;
   border-bottom-right-radius: 100px;
-  background: linear-gradient(30deg, #ff660040, #f5be5340), center/cover url(${withPrefix('/images/hero.jpg')});
+  background: linear-gradient(30deg, #ff660040, #f5be5340), center/cover url(${withPrefix('/images/hero/hero-1.jpg')});
   z-index: 0;
 `;
 
