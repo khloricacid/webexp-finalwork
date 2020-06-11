@@ -51,52 +51,70 @@ export const Almunis = (): React.ReactElement => {
 
   return (
     <Wrapper>
-      <CommonHeading en="GRADUATE" ja="卒業生紹介" />
-      <AlmuniWrapper ref={ref} animate={InView ? 'visible' : 'hidden'} variants={vars}>
-        {almuniList.map(person => (
-          <AlmuniCard variants={vars} key={person.name}>
-            <AlmuniInfo img={person.img}>
-              <AlmuniInfoText>
-                <h3>{person.name}</h3>
-                <span>{person.company}</span>
-              </AlmuniInfoText>
-            </AlmuniInfo>
-            <div
-              css={css`
-                padding: 26px;
-              `}
-            >
-              <Paragraph>{person.body}</Paragraph>
-              <a
+      <div
+        css={css`
+          @media screen and (max-width: 960px) {
+            padding: 0 32px;
+          }
+        `}
+      >
+        <CommonHeading en="GRADUATE" ja="卒業生紹介" />
+      </div>
+      <div
+        css={css`
+          @media screen and (max-width: 960px) {
+            width: 100%;
+            overflow-x: scroll;
+            padding: 0 32px;
+          }
+        `}
+      >
+        <AlmuniWrapper ref={ref} animate={InView ? 'visible' : 'hidden'} variants={vars}>
+          {almuniList.map(person => (
+            <AlmuniCard variants={vars} key={person.name}>
+              <AlmuniInfo img={person.img}>
+                <AlmuniInfoText>
+                  <h3>{person.name}</h3>
+                  <span>{person.company}</span>
+                </AlmuniInfoText>
+              </AlmuniInfo>
+              <div
                 css={css`
-                  display: inline-block;
-                  text-decoration: none;
-                  color: #f60;
-                  margin-top: 1em;
-                  &:after {
-                    content: '→';
-                    opacity: 0;
-                    margin-left: 0;
-                    transition: 0.4s;
-                  }
-                  &:hover {
+                  padding: 26px;
+                `}
+              >
+                <Paragraph>{person.body}</Paragraph>
+                <a
+                  css={css`
+                    display: inline-block;
+                    text-decoration: none;
+                    color: #f60;
+                    margin-top: 1em;
                     &:after {
                       content: '→';
-                      opacity: 1;
-                      margin-left: 0.5em;
+                      opacity: 0;
+                      margin-left: 0;
+                      transition: 0.4s;
                     }
-                  }
-                `}
-                href={person.link}
-                target="_blank"
-                rel="noreferrer"
-              >
-                もっと見る
-              </a>
-            </div>
-          </AlmuniCard>
-        ))}
-      </AlmuniWrapper>
+                    &:hover {
+                      &:after {
+                        content: '→';
+                        opacity: 1;
+                        margin-left: 0.5em;
+                      }
+                    }
+                  `}
+                  href={person.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  もっと見る
+                </a>
+              </div>
+            </AlmuniCard>
+          ))}
+        </AlmuniWrapper>
+      </div>
     </Wrapper>
   );
 };
@@ -143,12 +161,6 @@ const AlmuniInfoText = styled.div`
     font-weight: normal;
   }
 `;
-const AlmuniWrapper = styled(motion.div)`
-  margin-top: 32px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
 
 const AlmuniCard = styled(motion.section)`
   width: 475px;
@@ -162,6 +174,26 @@ const AlmuniCard = styled(motion.section)`
       &:before {
         transform: scale(1.05);
       }
+    }
+  }
+  @media screen and (max-width: 960px) {
+    width: 85vw;
+  }
+`;
+
+const AlmuniWrapper = styled(motion.div)`
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media screen and (max-width: 960px) {
+    display: inline-flex;
+    justify-content: flex-start;
+    ${AlmuniCard} + ${AlmuniCard} {
+      margin-left: 16px;
+    }
+    ${AlmuniCard}:last-child {
+      margin-right: 32px;
     }
   }
 `;

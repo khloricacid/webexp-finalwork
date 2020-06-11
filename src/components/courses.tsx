@@ -28,9 +28,9 @@ const classvars = {
 };
 
 export const Courses = (): React.ReactElement => {
-  const [C1Ref, C1InView, C1Entry] = useInView(intersectionConfig);
-  const [C2Ref, C2InView, C2Entry] = useInView(intersectionConfig);
-  const [C3Ref, C3InView, C3Entry] = useInView(intersectionConfig);
+  const [C1Ref, C1InView] = useInView(intersectionConfig);
+  const [C2Ref, C2InView] = useInView(intersectionConfig);
+  const [C3Ref, C3InView] = useInView(intersectionConfig);
   return (
     <Wrapper
       css={css`
@@ -75,6 +75,9 @@ const Wrapper = styled.article`
   section + section {
     margin-top: 50px;
   }
+  @media screen and (max-width: 960px) {
+    padding: 0 32px;
+  }
 `;
 
 const ClassImage = styled(motion.img)`
@@ -82,6 +85,11 @@ const ClassImage = styled(motion.img)`
   height: 300px;
   object-fit: cover;
   border-radius: 5px;
+  @media screen and (max-width: 960px) {
+    margin: 32px 0 0 0;
+    width: 100%;
+    height: 200px;
+  }
 `;
 
 const ClassDescription = styled(motion.div)`
@@ -93,6 +101,10 @@ const ClassDescription = styled(motion.div)`
   p {
     margin-top: 8px;
   }
+  @media screen and (max-width: 960px) {
+    margin: 32px 0 0 0;
+    width: 100%;
+  }
 `;
 
 const ClassWrapper = styled(motion.section)`
@@ -100,4 +112,8 @@ const ClassWrapper = styled(motion.section)`
   grid-template-columns: auto 1fr;
   align-items: center;
   margin-top: 32px;
+
+  @media screen and (max-width: 960px) {
+    display: block;
+  }
 `;

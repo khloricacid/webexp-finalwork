@@ -35,6 +35,9 @@ export const Employment = (): React.ReactElement => {
         <div
           css={css`
             width: 350px;
+            @media screen and (max-width: 960px) {
+              width: 100%;
+            }
           `}
         >
           <Heading variants={vars}>
@@ -42,7 +45,7 @@ export const Employment = (): React.ReactElement => {
               就職率
               {InView ? (
                 <React.Fragment>
-                  <CountUp duration={4} end={91.7} decimals={1} />
+                  <CountUp duration={3} end={91.7} decimals={1} />
                   %。
                 </React.Fragment>
               ) : undefined}
@@ -54,6 +57,9 @@ export const Employment = (): React.ReactElement => {
               width: 300px;
               margin-top: 16px;
               margin-bottom: 32px;
+              @media screen and (max-width: 960px) {
+                width: 100%;
+              }
             `}
           >
             DHUはIT・コンテンツ業界に独自の企業ネットワークと9万人を超えるデジタルハリウッド全体の卒業生ネットワークを保有しています。本学の就職率が高いのは、業界とのネットワークの強さと、1年次からのきめ細かい就職サポートで、学生の夢実現を応援しています。
@@ -68,6 +74,9 @@ export const Employment = (): React.ReactElement => {
         <div
           css={css`
             width: 500px;
+            @media screen and (max-width: 960px) {
+              display: none;
+            }
           `}
         >
           <Paragraph variants={vars}
@@ -90,6 +99,9 @@ export const Employment = (): React.ReactElement => {
 
 const Wrapper = styled.article`
   margin-top: 100px;
+  @media screen and (max-width: 960px) {
+    padding: 32px;
+  }
 `;
 const Heading = styled(motion.h3)`
   display: inline-flex;

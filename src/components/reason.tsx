@@ -20,18 +20,31 @@ const Container = styled.section`
     linear-gradient(0deg, rgba(0, 0, 0, 0.57), rgba(0, 0, 0, 0.57)),
     center/cover url(${withPrefix('/images/reason.jpg')});
   color: white;
+  @media screen and (max-width: 960px) {
+    height: inherit;
+    width: 100%;
+  }
 `;
 
 const Text = styled(motion.article)`
   width: 700px;
-  display: flex;
+  display: inline-flex;
   flex-flow: column;
   align-items: center;
   filter: drop-shadow(0px 0px 4px #00000040);
+  @media screen and (max-width: 960px) {
+    width: 90%;
+    align-items: flex-start;
+    justify-content: center;
+    margin: auto;
+  }
 `;
 
 const Heading = styled(motion.div)`
   text-align: center;
+  @media screen and (max-width: 960px) {
+    text-align: left;
+  }
 `;
 const EnHeading = styled(motion.span)`
   font-weight: bold;
@@ -40,10 +53,17 @@ const EnHeading = styled(motion.span)`
 const JpHeading = styled(motion.h2)`
   font-weight: bold;
   font-size: 48px;
+  @media screen and (max-width: 960px) {
+    width: 9em;
+    font-size: 32px;
+  }
 `;
 const Paragraph = styled(motion.p)`
   line-height: 2.5;
   width: 500px;
+  @media screen and (max-width: 960px) {
+    width: 100%;
+  }
 `;
 
 const variants = {

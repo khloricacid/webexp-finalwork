@@ -13,6 +13,11 @@ const Container = styled.header`
   grid-template-columns: 1fr 500px;
   grid-column-gap: 64px;
   align-items: flex-end;
+  @media screen and (max-width: 960px) {
+    height: inherit;
+    width: 100%;
+    display: block;
+  }
 `;
 
 const TopLink = styled.a`
@@ -30,10 +35,19 @@ const Keyvisual = styled(motion.div)`
   border-bottom-right-radius: 100px;
   background: linear-gradient(30deg, #ff660040, #f5be5340), center/cover url(${withPrefix('/images/hero/hero-1.jpg')});
   z-index: 0;
+  @media screen and (max-width: 960px) {
+    width: 95vw;
+    height: 300px;
+    display: block;
+  }
 `;
 
 const Heading = styled(motion.div)`
+  display: inline-block;
   margin-bottom: 100px;
+  @media screen and (max-width: 960px) {
+    margin: 40px 0 0 30px;
+  }
 `;
 
 const Department = styled(motion.p)`
@@ -50,6 +64,9 @@ const Department = styled(motion.p)`
 const LeadText = styled(motion.h1)`
   font-size: 64px;
   line-height: 1.2;
+  @media screen and (max-width: 960px) {
+    font-size: 46px;
+  }
 `;
 
 const ArrowContainer = styled.div`
@@ -213,9 +230,6 @@ const Slideshow = (): React.ReactElement => {
 export const Hero = (): React.ReactElement => {
   return (
     <Container>
-      <TopLink href="https://www.dhw.ac.jp/" target="_blank" rel="norefferer">
-        大学HP
-      </TopLink>
       {/* <Slideshow /> */}
       <Keyvisual initial="hidden" animate="visible" variants={haloVariant} />
       <Heading initial="hidden" animate="visible" variants={headingVariant}>

@@ -64,6 +64,9 @@ const UnivLogo = styled.div`
       cursor: pointer;
     }
   }
+  @media screen and (max-width: 960px) {
+    margin-bottom: 2em;
+  }
 `;
 const FacultyList = styled.ul`
   list-style: none;
@@ -71,6 +74,13 @@ const FacultyList = styled.ul`
   align-items: baseline;
   li + li {
     margin-left: 1em;
+  }
+  @media screen and (max-width: 960px) {
+    display: block;
+    li + li {
+      margin-left: 0;
+      margin-top: 0.5em;
+    }
   }
 `;
 const FacultyItem = styled.li`
@@ -93,6 +103,9 @@ const Upper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: 960px) {
+    display: block;
+  }
 `;
 
 const Under = styled.div`
@@ -112,5 +125,8 @@ const BackToTop = styled.button`
     content: '↑';
     font-size: 12px;
     margin-left: 0.5em;
+  }
+  @media screen and (max-width: 960px) {
+    display: none;
   }
 `;

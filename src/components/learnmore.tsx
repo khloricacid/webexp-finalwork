@@ -5,12 +5,12 @@ import styled from '@emotion/styled';
 
 export const Contact = (): React.ReactElement => {
   return (
-    <Wrapper>
+    <Wrapper id="contacts">
       <ArticleHeading>
         <EnHeading>LET&apos;S KEEP IN TOUCH</EnHeading>
         <JpHeading>もっと詳しく知る</JpHeading>
       </ArticleHeading>
-      <ContactCards id="contacts">
+      <ContactCards>
         <li>
           <ContactCard href="https://www.dhw.ac.jp/entrance/" target="_blank" rel="norefferer" color="#64A3ED">
             <SvgWrap xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -90,6 +90,10 @@ const ContactCards = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 16px;
+  @media screen and (max-width: 960px) {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
 `;
 const ContactCard = styled.a`
   position: relative;
@@ -131,4 +135,7 @@ const JpHeading = styled.h2`
 
 const Wrapper = styled.article`
   margin-top: 100px;
+  @media screen and (max-width: 960px) {
+    padding: 0 32px;
+  }
 `;

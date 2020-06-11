@@ -48,12 +48,29 @@ export const Features = (): React.ReactElement => {
         css={css`
           margin-left: 64px;
           margin-top: 64px;
+          @media screen and (max-width: 960px) {
+            margin: 0;
+            padding: 32px 0 32px 32px;
+          }
         `}
       >
         <EnHeading>CHARACTERISTICS OF LEARNING</EnHeading>
         <JpHeading>学びの特色</JpHeading>
       </ArticleHeading>
-      <FeatureArticle ref={F1Ref} initial={{ x: 200, y: 0 }} animate={F1InView ? 'visible' : 'hidden'} variants={hVars}>
+      <FeatureArticle
+        css={css`
+          @media screen and (max-width: 960px) {
+            display: inline-flex;
+            width: 100%;
+            margin: 0;
+            flex-direction: column-reverse;
+          }
+        `}
+        ref={F1Ref}
+        initial={{ x: 200, y: 0 }}
+        animate={F1InView ? 'visible' : 'hidden'}
+        variants={hVars}
+      >
         <FeatureDescription>
           <h3 className="gradient-text_orange">
             基礎から先端技術まで
@@ -68,7 +85,7 @@ export const Features = (): React.ReactElement => {
             デザイン系、コード（プログラミング）系の2系統の授業があり、両方を複合的に学んだり、片方に特化して学ぶことができます。Webサイト制作プロジェクト演習ではひとつのテーマについてグループを組み、得意な技術を活かすことができます。
           </Paragraph>
           <CurriculumList
-            initial={{x: 100}}
+            initial={{ x: 100 }}
             animate={F1InView ? 'visible' : 'hidden'}
             variants={hVars}
             transition={{ delay: 0.4 }}
@@ -87,11 +104,32 @@ export const Features = (): React.ReactElement => {
           </CurriculumList>
         </FeatureDescription>
         {/* eslint-disable-next-line prettier/prettier */}
-        <FeatureImage css={css`border-radius: 5px 0 0 5px;`} url={withPrefix('/images/feature/feature-1.jpg')} />
+        <FeatureImage css={css`
+            border-radius: 5px 0 0 5px;
+          `}
+          url={withPrefix('/images/feature/feature-1.jpg')}
+        />
       </FeatureArticle>
-      <FeatureArticle ref={F2Ref} initial={{ x: -200, y: 0 }} animate={F2InView ? 'visible' : 'hidden'} variants={hVars}>
+      <FeatureArticle
+        css={css`
+          @media screen and (max-width: 960px) {
+            margin: 0;
+            width: 100%;
+            flex-direction: column;
+          }
+        `}
+        ref={F2Ref}
+        initial={{ x: -200, y: 0 }}
+        animate={F2InView ? 'visible' : 'hidden'}
+        variants={hVars}
+      >
         {/* eslint-disable-next-line prettier/prettier */}
-        <FeatureImage css={css`border-radius: 0 5px 5px 0;`} url={withPrefix('/images/feature/feature-2.jpg')} />
+        <FeatureImage
+          css={css`
+            border-radius: 0 5px 5px 0;
+          `}
+          url={withPrefix('/images/feature/feature-2.jpg')}
+        />
         <FeatureDescription>
           <h3 className="gradient-text_orange">
             新しいWeb表現を探る
@@ -106,7 +144,7 @@ export const Features = (): React.ReactElement => {
             サイト構築だけでなく、デザインの基礎から動画撮影やゲーム開発に必要なプログラミングまで横断的に学ぶことができます。動画や音楽、ゲームなどを盛り込んだ、バリエーション豊かなサイトの構築手法が身につきます。
           </Paragraph>
           <CurriculumList
-            initial={{x: -100}}
+            initial={{ x: -100 }}
             animate={F2InView ? 'visible' : 'hidden'}
             variants={hVars}
             transition={{ delay: 0.4 }}
@@ -125,11 +163,28 @@ export const Features = (): React.ReactElement => {
           </CurriculumList>
         </FeatureDescription>
       </FeatureArticle>
-      <BusinessArticle ref={F3Ref} initial={{ y: -100 }} animate={F3InView ? 'visible' : 'hidden'} variants={hVars}>
+      <BusinessArticle
+        css={css`
+          @media screen and (max-width: 960px) {
+            margin: 0 !important;
+            width: 100%;
+          }
+        `}
+        ref={F3Ref}
+        initial={{ y: -100 }}
+        animate={F3InView ? 'visible' : 'hidden'}
+        variants={hVars}
+      >
         <FeatureDescription
           css={css`
             width: 500px;
             filter: drop-shadow(0px 0px 4px #00000040);
+            @media screen and (max-width: 960px) {
+              height: auto;
+              h3 {
+                font-size: 25px;
+              }
+            }
           `}
         >
           <h3>
@@ -173,6 +228,12 @@ const FeatureArticle = styled(motion.article)`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 500px;
+  @media screen and (max-width: 960px) {
+    width: 100%;
+    display: inline-flex;
+    flex-flow: column;
+    margin-top: 0 !important;
+  }
 `;
 
 const BusinessArticle = styled(motion.article)`
@@ -183,6 +244,11 @@ const BusinessArticle = styled(motion.article)`
   height: 500px;
   background: center/cover url(${withPrefix('./images/feature/feature-3.jpg')});
   color: white;
+  @media screen and (max-width: 960px) {
+    width: 100%;
+    display: inline-flex;
+    flex-flow: column;
+  }
 `;
 
 const FeatureDescription = styled.div`
@@ -198,12 +264,32 @@ const FeatureDescription = styled.div`
       font-size: 26px;
     }
   }
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    min-width: 0;
+    width: 100%;
+    padding: 32px 32px 48px 32px;
+    flex-direction: column-reverse;
+    h3 {
+      font-size: 26px;
+      span {
+        font-size: 18px;
+      }
+    }
+  }
 `;
 
 const FeatureImage = styled.div`
   width: 100%;
   height: 100%;
   background: center/cover url(${(props: FeatureProps) => props.url});
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    padding: 32px;
+    width: 100%;
+    height: 300px;
+    border-radius: 0;
+  }
 `;
 
 const CurriculumList = styled(motion.aside)`
@@ -220,6 +306,23 @@ const CurriculumList = styled(motion.aside)`
     font-weight: bold;
     margin-right: 1em;
   }
+  @media screen and (max-width: 960px) {
+    flex-flow: column;
+    margin: 0;
+    margin-top: 2em;
+    width: 90vw;
+    ul {
+      display: block;
+      li + li {
+        margin-left: 0;
+        margin-top: 0.5em;
+      }
+    }
+    span {
+      margin-right: 0;
+      margin-bottom: 0.5em;
+    }
+  }
 `;
 
 const Container = styled.div`
@@ -227,5 +330,9 @@ const Container = styled.div`
   overflow: hidden;
   article + article {
     margin-top: 64px;
+  }
+  @media screen and (max-width: 960px) {
+    display: block;
+    margin: 0;
   }
 `;

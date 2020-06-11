@@ -79,12 +79,18 @@ const App = (): React.ReactElement => {
               -webkit-text-fill-color: transparent;
             }
           }
+          @media screen and (max-width: 960px) {
+            body {
+              margin: 0;
+              min-width: 0;
+            }
+          }
         `}
       />
       {/* <Loader /> */}
       <StickLink />
       <Hero />
-      <main>
+      <main css={{ width: '100%' }}>
         <Reason />
         <Features />
         <Wrapper960>
