@@ -2,7 +2,13 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 
-export const ArticleHeading = styled.div`
+export const OIConfig = {
+  rootMargin: '0px 0px -25% 0px',
+  threshold: 0,
+  triggerOnce: true
+}
+
+export const ArticleHeading = styled(motion.div)`
   display: inline-block;
   text-align: left;
 `;
@@ -56,7 +62,7 @@ export const CommonButton = ({ name, href, primaryColor, hoverColor }: ButtonPro
   );
 };
 
-export const Paragraph = styled.p`
+export const Paragraph = styled(motion.p)`
   line-height: 26px;
 `;
 

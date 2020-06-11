@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { withPrefix } from 'gatsby';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -47,7 +47,7 @@ const Department = styled(motion.p)`
 `;
 
 const LeadText = styled(motion.h1)`
-  font-size: 48px;
+  font-size: 64px;
   line-height: 1.2;
 `;
 
@@ -125,6 +125,91 @@ const headingVariant = {
   }
 };
 
+// 実装できそうならやる
+const Slideshow = (): React.ReactElement => {
+  const [imageIndex, setImageIndex] = React.useState(0);
+  const [active, setActive] = React.useState(0);
+  const [nextImageIndex, setNextImageIndex] = React.useState(1);
+  const slideControl1 = useAnimation();
+  const slideControl2 = useAnimation();
+
+  const Slide = styled(motion.img)`
+    width: calc(100% + 200px);
+    object-fit: cover;
+    position: absolute;
+  `;
+
+  const slideImages = [
+    withPrefix('images/hero/hero-1.jpg'),
+    withPrefix('images/hero/hero-2.jpg'),
+    withPrefix('images/hero/hero-3.jpg'),
+    withPrefix('images/hero/hero-4.jpg')
+  ];
+
+  React.useEffect(() => {
+    const sequencing = async () => {
+      const next = slideImages.length - 1 >= imageIndex ? 0 : imageIndex + 1;
+      const switch1to2 = async () => {
+        slideControl1.start({
+          opacity: 0,
+          transition: {
+            duration: 3
+          }
+        });
+        await slideControl2
+          .start({
+            x: -100,
+            transition: {
+              duration: 10
+            }
+          })
+          .then(() => {
+            setImageIndex(old => old + 1);
+          });
+      };
+
+      const switch2to1 = async () => {
+        slideControl1.start({
+          opacity: 1,
+          transition: {
+            duration: 3
+          }
+        });
+        await slideControl1
+          .start({
+            x: -100,
+            transition: {
+              duration: 10
+            }
+          })
+          .then(() => {
+            setNextImageIndex(next);
+          });
+      };
+
+      await switch1to2();
+      await switch2to1();
+      await sequencing();
+    };
+    sequencing();
+  }, []);
+
+  return (
+    <div
+      css={css`
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        border-bottom-right-radius: 100px;
+      `}
+    >
+      <Slide animate={slideControl2} src={slideImages[nextImageIndex]} alt="" />
+      <Slide animate={slideControl1} src={slideImages[imageIndex]} alt="" />
+    </div>
+  );
+};
+
 export const Hero = (): React.ReactElement => {
   const [isHover, toggleHover] = React.useState(false);
   return (
@@ -132,6 +217,7 @@ export const Hero = (): React.ReactElement => {
       <TopLink href="https://www.dhw.ac.jp/" target="_blank" rel="norefferer">
         大学HP
       </TopLink>
+      {/* <Slideshow /> */}
       <Keyvisual initial="hidden" animate="visible" variants={haloVariant} />
       <Heading initial="hidden" animate="visible" variants={headingVariant}>
         <Department initial={{ y: -100, opacity: 0 }} variants={headingVariant}>
@@ -156,7 +242,7 @@ export const Hero = (): React.ReactElement => {
           initial={{ y: -100, opacity: 0 }}
           whileHover={{ backgroundColor: '#f60', color: '#fff', transition: { duration: 0.2 } }}
           variants={headingVariant}
-          css={{ marginTop: 16 }}
+          css={{ marginTop: 32 }}
           href="#"
         >
           資料請求はこちら

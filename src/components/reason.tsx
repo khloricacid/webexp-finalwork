@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { CommonButton } from './shared';
+import { OIConfig, CommonButton } from './shared';
 
 const Container = styled.section`
   display: flex;
@@ -63,11 +63,7 @@ const variants = {
 };
 
 export const Reason: React.FC = (): React.ReactElement => {
-  const [ref, inView, entry] = useInView({
-    rootMargin: '0px 0px -25% 0px',
-    threshold: 0,
-    triggerOnce: true
-  });
+  const [ref, inView, entry] = useInView(OIConfig);
 
   return (
     <Container>

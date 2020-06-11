@@ -1,17 +1,20 @@
 import * as React from 'react';
-import { withPrefix } from 'gatsby';
+import { useInView } from 'react-intersection-observer';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
+import CountUp from 'react-countup';
 import { CommonHeading, Paragraph, CommonButton } from './shared';
 
 export const Employment = (): React.ReactElement => {
+  const [ref, InView, entry] = useInView({
+    rootMargin: '0px 0px -60% 0px',
+    threshold: 0,
+    triggerOnce: true
+  });
   return (
-    <Wrapper>
-      <CommonHeading
-        en="EMPLOYMENT"
-        ja="就職実績"
-      />
+    <Wrapper ref={ref}>
+      <CommonHeading en="EMPLOYMENT" ja="就職実績" />
       <EmployContent>
         <div
           css={css`
@@ -19,7 +22,15 @@ export const Employment = (): React.ReactElement => {
           `}
         >
           <Heading>
-            <span className="gradient-text_orange">就職率91.7%。</span>
+            <span className="gradient-text_orange">
+              就職率
+              {InView ? (
+                <React.Fragment>
+                  <CountUp duration={4} end={91.7} decimals={1} />
+                  %。
+                </React.Fragment>
+              ) : undefined}
+            </span>
             強力なサポート体制で就職活動をバックアップします。
           </Heading>
           <Paragraph
@@ -64,11 +75,14 @@ const Wrapper = styled.article`
   margin-top: 100px;
 `;
 const Heading = styled.h3`
+  display: inline-flex;
+  flex-flow: column;
   font-weight: bold;
   font-size: 14px;
   span {
-    font-size: 26px;
-    display: block;
+    font-size: 36px;
+    display: inline-flex;
+    align-items: baseline;
   }
 `;
 const EmployContent = styled.div`

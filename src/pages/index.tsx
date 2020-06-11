@@ -41,9 +41,9 @@ const App = (): React.ReactElement => {
             margin-bottom: 8px;
           `}
         >
-          このページは現在進行形で開発がされています
+          Development Build
         </p>
-        <p>多少の粗々はご容赦ください</p>
+        <p>このページは現在開発中です</p>
       </Disclaimer>
       <Helmet
         htmlAttributes={{
