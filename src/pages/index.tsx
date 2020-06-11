@@ -57,6 +57,7 @@ const App = (): React.ReactElement => {
           @import url('https://rsms.me/inter/inter.css');
           html {
             font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
           }
           @supports (font-variation-settings: normal) {
             html {

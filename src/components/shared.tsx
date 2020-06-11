@@ -94,3 +94,9 @@ export const Wrapper960 = styled.div`
   width: 960px;
   margin: 0 auto;
 `;
+
+export const handleScroll = (target: HTMLElement | null) => {
+  target?.scrollIntoView({
+    behavior: 'smooth'
+  });
+};

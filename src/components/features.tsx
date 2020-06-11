@@ -28,17 +28,16 @@ const hVars = {
 };
 
 const intersectionConfig = {
-  rootMargin: '0px 0px -60% 0px',
+  rootMargin: '0px 0px -30% 0px',
   threshold: 0,
   triggerOnce: true
 };
 
 export const Features = (): React.ReactElement => {
-  const ref = React.useRef();
-  const [HRef, HInView, HEntry] = useInView(OIConfig);
-  const [F1Ref, F1InView, F1Entry] = useInView(intersectionConfig);
-  const [F2Ref, F2InView, F2Entry] = useInView(intersectionConfig);
-  const [F3Ref, F3InView, F3Entry] = useInView(intersectionConfig);
+  const [HRef, HInView] = useInView(OIConfig);
+  const [F1Ref, F1InView] = useInView(intersectionConfig);
+  const [F2Ref, F2InView] = useInView(intersectionConfig);
+  const [F3Ref, F3InView] = useInView(intersectionConfig);
 
   return (
     <Container>

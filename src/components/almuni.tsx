@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { withPrefix } from 'gatsby';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -25,12 +27,34 @@ const almuniList = [
 ];
 
 export const Almunis = (): React.ReactElement => {
+  const [ref, InView] = useInView({
+    rootMargin: '0px 0px -30% 0px',
+    threshold: 0,
+    triggerOnce: true
+  });
+
+  const vars = {
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut',
+        staggerChildren: 0.2
+      }
+    },
+    hidden: {
+      y: -30,
+      opacity: 0
+    }
+  };
+
   return (
     <Wrapper>
       <CommonHeading en="GRADUATE" ja="卒業生紹介" />
-      <AlmuniWrapper>
+      <AlmuniWrapper ref={ref} animate={InView ? 'visible' : 'hidden'} variants={vars}>
         {almuniList.map(person => (
-          <AlmuniCard key={person.name}>
+          <AlmuniCard variants={vars} key={person.name}>
             <AlmuniInfo img={person.img}>
               <AlmuniInfoText>
                 <h3>{person.name}</h3>
@@ -119,14 +143,14 @@ const AlmuniInfoText = styled.div`
     font-weight: normal;
   }
 `;
-const AlmuniWrapper = styled.div`
+const AlmuniWrapper = styled(motion.div)`
   margin-top: 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-const AlmuniCard = styled.section`
+const AlmuniCard = styled(motion.section)`
   width: 475px;
   background: #f5f5f5;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);

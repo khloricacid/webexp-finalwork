@@ -5,6 +5,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
 import DhuLogo from './logo_static';
+import { handleScroll } from './shared';
 
 const Container = styled.header`
   height: 720px;
@@ -59,7 +60,7 @@ const ArrowContainer = styled.div`
   margin-left: 0.5em;
 `;
 
-const GetBrochure = styled(motion.a)`
+const GetBrochure = styled(motion.div)`
   display: inline-flex;
   align-items: center;
   text-decoration: none;
@@ -128,7 +129,6 @@ const headingVariant = {
 // 実装できそうならやる
 const Slideshow = (): React.ReactElement => {
   const [imageIndex, setImageIndex] = React.useState(0);
-  const [active, setActive] = React.useState(0);
   const [nextImageIndex, setNextImageIndex] = React.useState(1);
   const slideControl1 = useAnimation();
   const slideControl2 = useAnimation();
@@ -211,7 +211,6 @@ const Slideshow = (): React.ReactElement => {
 };
 
 export const Hero = (): React.ReactElement => {
-  const [isHover, toggleHover] = React.useState(false);
   return (
     <Container>
       <TopLink href="https://www.dhw.ac.jp/" target="_blank" rel="norefferer">
@@ -239,11 +238,12 @@ export const Hero = (): React.ReactElement => {
           手に入れよう
         </LeadText>
         <GetBrochure
+          role="button"
           initial={{ y: -100, opacity: 0 }}
           whileHover={{ backgroundColor: '#f60', color: '#fff', transition: { duration: 0.2 } }}
           variants={headingVariant}
           css={{ marginTop: 32 }}
-          href="#"
+          onClick={() => handleScroll(document.querySelector('#contacts'))}
         >
           資料請求はこちら
           <ArrowContainer>

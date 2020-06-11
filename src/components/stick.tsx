@@ -3,6 +3,7 @@ import { motion, useAnimation } from 'framer-motion';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
+import { handleScroll } from './shared';
 
 export const StickLink = (): React.ReactElement => {
   const anims = useAnimation();
@@ -15,7 +16,12 @@ export const StickLink = (): React.ReactElement => {
     sequence();
   }, []);
   return (
-    <Button animate={anims} whileHover={{ right: 0 }}>
+    <Button
+      role="button"
+      onClick={() => handleScroll(document.querySelector('#contacts'))}
+      animate={anims}
+      whileHover={{ right: 0 }}
+    >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
         <path
           fill="currentColor"
@@ -31,13 +37,14 @@ export const StickLink = (): React.ReactElement => {
   );
 };
 
-const Button = styled(motion.a)`
+const Button = styled(motion.div)`
   display: flex;
   justify-content: flex-start;
   font-size: 12px;
   font-weight: bold;
   color: white;
   align-items: center;
+  text-decoration: none;
   background-color: #f60;
   border-radius: 60px 0 0 60px;
   width: 200px;

@@ -10,7 +10,7 @@ export const Contact = (): React.ReactElement => {
         <EnHeading>LET&apos;S KEEP IN TOUCH</EnHeading>
         <JpHeading>もっと詳しく知る</JpHeading>
       </ArticleHeading>
-      <ContactCards>
+      <ContactCards id="contacts">
         <li>
           <ContactCard href="https://www.dhw.ac.jp/entrance/" target="_blank" rel="norefferer" color="#64A3ED">
             <SvgWrap xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

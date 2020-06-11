@@ -33,7 +33,7 @@ const faculties = [
 
 export const Faculty = (): React.ReactElement => {
   const [ref, InView, ] = useInView({
-    rootMargin: '0px 0px -50% 0px',
+    rootMargin: '0px 0px -30% 0px',
     threshold: 0,
     triggerOnce: true
   });

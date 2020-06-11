@@ -29,9 +29,11 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "react-intersection-observer": "^8.26.2",
+    "react-scroll": "^1.7.16",
     "react-spring": "^9.0.0-rc.3",
     "react-use": "^15.2.0",
     "ress": "^2.0.4",
+    "smoothscroll-polyfill": "^0.4.4",
     "typescript": "^3.9.3"
   },
   "devDependencies": {
