@@ -31,17 +31,45 @@ export const Almunis = (): React.ReactElement => {
       <AlmuniWrapper>
         {almuniList.map(person => (
           <AlmuniCard key={person.name}>
-            <Heading>
-              <AlmuniInfo>
-                <AlmuniImage src={person.img} alt={person.name} />
-                <AlmuniInfoText>
-                  <h3>{person.name}</h3>
-                  <span>{person.company}</span>
-                </AlmuniInfoText>
-              </AlmuniInfo>
-              <a href={person.link} target="_blank" rel="norefferer">もっと見る</a>
-            </Heading>
-            <Paragraph>{person.body}</Paragraph>
+            <AlmuniInfo img={person.img}>
+              <AlmuniInfoText>
+                <h3>{person.name}</h3>
+                <span>{person.company}</span>
+              </AlmuniInfoText>
+            </AlmuniInfo>
+            <div
+              css={css`
+                padding: 26px;
+              `}
+            >
+              <Paragraph>{person.body}</Paragraph>
+              <a
+                css={css`
+                  display: inline-block;
+                  text-decoration: none;
+                  color: #f60;
+                  margin-top: 1em;
+                  &:after {
+                    content: '→';
+                    opacity: 0;
+                    margin-left: 0;
+                    transition: 0.4s;
+                  }
+                  &:hover {
+                    &:after {
+                      content: '→';
+                      opacity: 1;
+                      margin-left: 0.5em;
+                    }
+                  }
+                `}
+                href={person.link}
+                target="_blank"
+                rel="noreferrer"
+              >
+                もっと見る
+              </a>
+            </div>
           </AlmuniCard>
         ))}
       </AlmuniWrapper>
@@ -52,24 +80,32 @@ export const Almunis = (): React.ReactElement => {
 const Wrapper = styled.article`
   margin-top: 100px;
 `;
-const Heading = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-`;
-const AlmuniImage = styled.img`
-  width: 48px;
-  height: 48px;
-  border-radius: 48px;
-  object-fit: cover;
-`;
+type AlmuniTypes = {
+  img: string;
+};
 const AlmuniInfo = styled.div`
-  display: flex;
-  align-items: center;
+  position: relative;
+  color: #fff;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  &:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #00000080, #00000000 60%),
+      ${(props: AlmuniTypes) => `center/cover url(${props.img})`};
+    transition: 0.4s;
+  }
 `;
 const AlmuniInfoText = styled.div`
-  margin-left: 16px;
+  position: absolute;
+  left: 26px;
+  bottom: 16px;
+  filter: drop-shadow(0px 0px 4px #00000040);
   h3 {
     font-size: 20px;
     &:after {
@@ -92,9 +128,16 @@ const AlmuniWrapper = styled.div`
 
 const AlmuniCard = styled.section`
   width: 475px;
-  height: 250px;
   background: #f5f5f5;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
   border-radius: 5px;
-  padding: 26px;
+  overflow: hidden;
+  &:hover {
+    filter: drop-shadow(0px 0px 4px #00000010);
+    ${AlmuniInfo} {
+      &:before {
+        transform: scale(1.05);
+      }
+    }
+  }
 `;

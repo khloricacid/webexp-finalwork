@@ -1,12 +1,13 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
 export const OIConfig = {
-  rootMargin: '0px 0px -25% 0px',
+  rootMargin: '0px 0px -30% 0px',
   threshold: 0,
   triggerOnce: true
-}
+};
 
 export const ArticleHeading = styled(motion.div)`
   display: inline-block;
@@ -26,8 +27,22 @@ type HeadingProps = {
   ja: string;
 };
 export const CommonHeading = ({ en, ja }: HeadingProps) => {
+  const [HRef, HInView, HEntry] = useInView(OIConfig);
+  const variants = {
+    hidden: {
+      opacity: 0,
+      y: -50
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6
+      }
+    }
+  };
   return (
-    <ArticleHeading>
+    <ArticleHeading ref={HRef} initial="hidden" animate={HInView ? 'visible' : 'hidden'} variants={variants}>
       <EnHeading>{en}</EnHeading>
       <JpHeading>{ja}</JpHeading>
     </ArticleHeading>
@@ -39,8 +54,17 @@ type ButtonProps = {
   href: string;
   primaryColor: string;
   hoverColor: string;
+  animate: string;
+  variants: Variants;
 };
-export const CommonButton = ({ name, href, primaryColor, hoverColor }: ButtonProps) => {
+export const CommonButton = ({
+  name,
+  href,
+  primaryColor,
+  hoverColor,
+  animate = undefined,
+  variants = undefined
+}: ButtonProps) => {
   const Button = styled(motion.a)`
     display: inline-flex;
     align-items: center;
@@ -56,7 +80,7 @@ export const CommonButton = ({ name, href, primaryColor, hoverColor }: ButtonPro
     }
   `;
   return (
-    <Button href={href} target="_blank" rel="norefferer">
+    <Button href={href} animate={animate} initial="hidden" variants={variants} target="_blank" rel="norefferer">
       {name}
     </Button>
   );

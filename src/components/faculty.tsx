@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
-import { withPrefix } from 'gatsby';
+import { withPrefix } from 'gatsby'
+import { useInView } from 'react-intersection-observer';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -31,6 +32,26 @@ const faculties = [
 ];
 
 export const Faculty = (): React.ReactElement => {
+  const [ref, InView, ] = useInView({
+    rootMargin: '0px 0px -50% 0px',
+    threshold: 0,
+    triggerOnce: true
+  });
+  const listvars = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut'
+      }
+    },
+    hidden: {
+      opacity: 0,
+      y: -20
+    }
+  };
+
   return (
     <Wrapper>
       <div
@@ -42,13 +63,15 @@ export const Faculty = (): React.ReactElement => {
       >
         <CommonHeading en="THE FACULTY" ja="教員紹介" />
         <CommonButton
+          animate={InView ? 'visible' : 'hidden'}
+          variants={listvars}
           name="教員一覧"
           primaryColor="#353535"
           hoverColor="#f60"
           href="https://www.dhw.ac.jp/feature/teacher/?categories=web"
         />
       </div>
-      <TeacherList>
+      <TeacherList ref={ref} animate={InView ? 'visible' : 'hidden'} variants={listvars}>
         {faculties.map(teacher => (
           <li key={teacher.name}>
             <TeacherCard href={teacher.href} image={teacher.image} target="_blank" rel="norefferer">
@@ -66,10 +89,10 @@ export const Faculty = (): React.ReactElement => {
 };
 
 const Wrapper = styled.article`
-  margin-top: 100px;
+  margin-top: 150px;
 `;
 
-const TeacherList = styled.ul`
+const TeacherList = styled(motion.ul)`
   list-style: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

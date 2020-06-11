@@ -10,8 +10,7 @@ export const StickLink = (): React.ReactElement => {
   React.useEffect(() => {
     const sequence = async () => {
       await anims.start({ right: '-200px' });
-      await anims.start({ right: 0, transition: { delay: 0.5 } });
-      await anims.start({ right: '-140px', transition: { delay: 2 } });
+      await anims.start({ right: '-140px' });
     };
     sequence();
   }, []);
@@ -47,6 +46,7 @@ const Button = styled(motion.a)`
   padding-left: 25px;
   right: -200px;
   bottom: 64px;
+  z-index: 10;
   svg {
     width: 20px;
     margin-right: 20px;

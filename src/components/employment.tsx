@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -12,16 +13,31 @@ export const Employment = (): React.ReactElement => {
     threshold: 0,
     triggerOnce: true
   });
+  const vars = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut',
+        staggerChildren: 0.2
+      }
+    },
+    hidden: {
+      opacity: 0,
+      y: -20
+    }
+  };
   return (
     <Wrapper ref={ref}>
       <CommonHeading en="EMPLOYMENT" ja="就職実績" />
-      <EmployContent>
+      <EmployContent initial="hidden" animate={InView ? 'visible' : 'hidden'} variants={vars}>
         <div
           css={css`
             width: 350px;
           `}
         >
-          <Heading>
+          <Heading variants={vars}>
             <span className="gradient-text_orange">
               就職率
               {InView ? (
@@ -33,15 +49,16 @@ export const Employment = (): React.ReactElement => {
             </span>
             強力なサポート体制で就職活動をバックアップします。
           </Heading>
-          <Paragraph
+          <Paragraph variants={vars}
             css={css`
               width: 300px;
               margin-top: 16px;
+              margin-bottom: 32px;
             `}
           >
             DHUはIT・コンテンツ業界に独自の企業ネットワークと9万人を超えるデジタルハリウッド全体の卒業生ネットワークを保有しています。本学の就職率が高いのは、業界とのネットワークの強さと、1年次からのきめ細かい就職サポートで、学生の夢実現を応援しています。
           </Paragraph>
-          <CommonButton
+          <CommonButton variants={vars}
             name="進路・就職情報"
             primaryColor="#353535"
             hoverColor="#f60"
@@ -53,7 +70,7 @@ export const Employment = (): React.ReactElement => {
             width: 500px;
           `}
         >
-          <Paragraph
+          <Paragraph variants={vars}
             css={css`
               font-weight: bold;
               margin-bottom: 1em;
@@ -74,7 +91,7 @@ export const Employment = (): React.ReactElement => {
 const Wrapper = styled.article`
   margin-top: 100px;
 `;
-const Heading = styled.h3`
+const Heading = styled(motion.h3)`
   display: inline-flex;
   flex-flow: column;
   font-weight: bold;
@@ -85,7 +102,7 @@ const Heading = styled.h3`
     align-items: baseline;
   }
 `;
-const EmployContent = styled.div`
+const EmployContent = styled(motion.div)`
   display: flex;
   justify-content: space-between;
   align-items: center;
